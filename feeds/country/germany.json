@@ -1,0 +1,10 @@
+{
+  "version": 1,
+  "last_updated": "2026-05-22T12:00:00Z",
+  "feeds": [
+    { "name": "DW (English)", "url": "https://rss.dw.com/rdf/rss-en-all" },
+    { "name": "Der Spiegel (English)", "url": "https://www.spiegel.de/international/index.rss" },
+    { "name": "Deutsche Welle Top Stories", "url": "https://www.dw.com/en/top-stories/rss/en-1" }
+  ],
+  "max_articles_per_feed": 8
+}

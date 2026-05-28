@@ -1,0 +1,10 @@
+{
+  "version": 1,
+  "last_updated": "2026-05-22T12:00:00Z",
+  "feeds": [
+    { "name": "France 24 (English)", "url": "https://www.france24.com/en/rss" },
+    { "name": "Le Monde (English)", "url": "https://www.lemonde.fr/en/rss/global.xml" },
+    { "name": "RFI (English)", "url": "https://www.rfi.fr/en/rss" }
+  ],
+  "max_articles_per_feed": 8
+}

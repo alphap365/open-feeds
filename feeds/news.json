@@ -1,0 +1,10 @@
+{
+  "version": 1,
+  "last_updated": "2026-05-21T12:00:00Z",
+  "feeds": [
+    { "name": "BBC News", "url": "http://feeds.bbci.co.uk/news/rss.xml" },
+    { "name": "Reuters", "url": "https://www.reuters.com/news/archive/rss" },
+    { "name": "AP News", "url": "https://feeds.ap.org/feeds/news" }
+  ],
+  "max_articles_per_feed": 8
+}

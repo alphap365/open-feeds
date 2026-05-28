@@ -1,0 +1,10 @@
+{
+  "version": 1,
+  "last_updated": "2026-05-21T12:00:00Z",
+  "feeds": [
+    { "name": "Dawn", "url": "https://www.dawn.com/feeds/home" },
+    { "name": "Geo News", "url": "https://www.geo.tv/feeds/latest" },
+    { "name": "The Express Tribune", "url": "https://tribune.com.pk/feed/" }
+  ],
+  "max_articles_per_feed": 8
+}

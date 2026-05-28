@@ -1,0 +1,10 @@
+{
+  "version": 1,
+  "last_updated": "2026-05-22T12:00:00Z",
+  "feeds": [
+    { "name": "China Daily", "url": "https://www.chinadaily.com.cn/rss/news_rss.xml" },
+    { "name": "Xinhua (English)", "url": "http://www.xinhuanet.com/english/rss.xml" },
+    { "name": "South China Morning Post", "url": "https://www.scmp.com/rss/2/feed" }
+  ],
+  "max_articles_per_feed": 8
+}

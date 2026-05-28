@@ -1,0 +1,9 @@
+{
+  "version": 1,
+  "last_updated": "2026-05-21T12:00:00Z",
+  "feeds": [
+    { "name": "Foreign Affairs", "url": "https://www.foreignaffairs.com/feed" },
+    { "name": "Stratfor", "url": "https://worldview.stratfor.com/rss.xml" }
+  ],
+  "max_articles_per_feed": 8
+}

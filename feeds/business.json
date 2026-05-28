@@ -1,0 +1,10 @@
+{
+  "version": 1,
+  "last_updated": "2026-05-21T12:00:00Z",
+  "feeds": [
+    { "name": "Bloomberg", "url": "https://feeds.bloomberg.com/markets/news.rss" },
+    { "name": "Financial Times", "url": "https://www.ft.com/?format=rss" },
+    { "name": "Wall Street Journal", "url": "https://feeds.a.dj.com/rss/WSJcom.xml" }
+  ],
+  "max_articles_per_feed": 8
+}

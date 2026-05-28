@@ -1,0 +1,10 @@
+{
+  "version": 1,
+  "last_updated": "2026-05-22T12:00:00Z",
+  "feeds": [
+    { "name": "NHK World (English)", "url": "https://www3.nhk.or.jp/nhkworld/en/news/rss.xml" },
+    { "name": "Japan Times", "url": "https://www.japantimes.co.jp/feed/" },
+    { "name": "Kyodo News (English)", "url": "https://english.kyodonews.net/rss/news_english.xml" }
+  ],
+  "max_articles_per_feed": 8
+}
