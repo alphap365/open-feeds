@@ -1,12 +1,10 @@
 <div align="center">
 
-# 📡 RSS Feeds Configuration
+# 📡 Open Feeds
 
-**Feed definitions for the open-news package**
+**Curated RSS feed definitions for news aggregation**
 
-This branch contains curated RSS feed configurations used by the `open-news` package.
-
-[Feed Structure](#-feed-structure) • [Adding Feeds](#-adding-feeds) • [Feed Format](#-feed-format) • [Back to Main](https://github.com/alphap365/open-news)
+[📚 Feed Structure](#-feed-structure) • [➕ Adding Feeds](#-adding-feeds) • [📝 Feed Format](#-feed-format) • [🤝 Contributing](#-contributing)
 
 </div>
 
@@ -14,14 +12,14 @@ This branch contains curated RSS feed configurations used by the `open-news` pac
 
 ## 📋 Overview
 
-This branch (`rss-feeds`) maintains the RSS feed definitions that power the `get_live_news()` function in the main `open-news` package. Feed configurations are stored as JSON files and are automatically fetched and cached by the package.
+**Open Feeds** is a community-maintained repository of curated RSS feed definitions. These feeds are designed to be used by news aggregation tools, scrapers, and Python packages like `open-news`.
 
-**Key features:**
-- ✅ Independent from code updates
+This repository maintains:
 - ✅ 50+ country-specific feeds
-- ✅ Category-based news feeds
-- ✅ Version controlled for transparency
+- ✅ Category-based news feeds (business, politics, geopolitics)
+- ✅ Version controlled for full transparency
 - ✅ Easy community contributions
+- ✅ Regularly maintained and validated feeds
 
 ---
 
@@ -33,13 +31,12 @@ feeds/
 ├── business.json          # Business & finance news
 ├── politics.json          # Political news
 ├── geopolitics.json       # Geopolitical analysis
-├── country/
-│   ├── india.json         # India-specific feeds
-│   ├── usa.json           # United States feeds
-│   ├── uk.json            # United Kingdom feeds
-│   ├── pakistan.json      # Pakistan-specific feeds
-│   └── ...                # Other countries
-└── metadata.json          # (Optional) Feed metadata
+└── country/
+    ├── india.json         # India-specific feeds
+    ├── usa.json           # United States feeds
+    ├── uk.json            # United Kingdom feeds
+    ├── pakistan.json      # Pakistan-specific feeds
+    └── ...                # Other countries
 ```
 
 ---
@@ -77,15 +74,19 @@ Each JSON file follows this structure:
 
 ## ➕ Adding Feeds
 
-### Step 1: Fork & Branch
+### Step 1: Fork & Clone
 ```bash
-git clone https://github.com/alphap365/open-news.git
-cd open-news
-git checkout rss-feeds
-git pull origin rss-feeds
+git clone https://github.com/alphap365/open-feeds.git
+cd open-feeds
 ```
 
-### Step 2: Edit the Appropriate JSON File
+### Step 2: Create a Feature Branch
+```bash
+git checkout -b add-feeds/<feed-category>
+# Example: git checkout -b add-feeds/india-news
+```
+
+### Step 3: Edit the Appropriate JSON File
 
 For example, to add a feed to India news:
 
@@ -99,34 +100,35 @@ For example, to add a feed to India news:
 }
 ```
 
-### Step 3: Validate JSON
+### Step 4: Validate JSON
 
 Ensure the JSON is valid:
 ```bash
 python3 -m json.tool feeds/country/india.json
 ```
 
-### Step 4: Test the Feed
+### Step 5: Test the Feed
 
-Verify the RSS feed is accessible:
+Verify the RSS feed is accessible and returns data:
 ```bash
 curl -s "https://feeds.thehindu.com/news/national/?format=feed&type=rss" | head -20
 ```
 
-### Step 5: Commit & Push
+### Step 6: Commit & Push
 
 ```bash
 git add feeds/country/india.json
 git commit -m "Add The Hindu news feed to India feeds"
-git push origin rss-feeds
+git push origin add-feeds/india-news
 ```
 
-### Step 6: Create a Pull Request
+### Step 7: Create a Pull Request
 
-Submit your PR on the `rss-feeds` branch with:
+Submit your PR with:
+- Clear title: `Add [Feed Name] to [Category/Country]`
 - Description of feeds added
-- Rationale (why this feed is relevant)
-- Verification that feeds are working
+- Rationale: Why this feed is relevant
+- Verification: Confirmation that feeds are working
 
 ---
 
@@ -136,49 +138,27 @@ Submit your PR on the `rss-feeds` branch with:
 
 ✅ **Good Feeds:**
 - Regularly updated (daily or more frequent)
-- Returns complete article titles
+- Returns complete article titles and links
 - Provides publication dates
-- Maintains feed for 6+ months
-- Accessible without authentication
+- Maintains stable feed URL for 6+ months
+- Accessible without authentication or paywall
+- Valid and well-formed RSS/Atom format
 
 ❌ **Avoid:**
 - Paywalled or limited access feeds
-- Feeds with truncated content
-- Dead or inactive feeds
-- Feeds requiring API keys
+- Feeds with truncated content or summaries only
+- Dead or inactive feeds (no updates in 3+ months)
+- Feeds requiring API keys or authentication
+- Feeds with excessive redirects or errors
 
 ### Best Practices
 
-1. **Test before submitting:** Verify the feed URL works and returns data
-2. **No duplicates:** Check existing feeds to avoid adding the same source twice
+1. **Test before submitting:** Always verify the feed URL works and returns articles
+2. **No duplicates:** Search existing JSON files to avoid adding the same source twice
 3. **Country-specific feeds:** Place country feeds in `feeds/country/{country}.json`
 4. **Category feeds:** Use the main category files (`news.json`, `business.json`, etc.)
 5. **Descriptive names:** Use official source names (e.g., "BBC News" not "BBC")
-
----
-
-## 📤 How Package Uses These Feeds
-
-The main `open-news` package fetches feeds from this branch via:
-
-```
-https://raw.githubusercontent.com/alphap365/open-news/rss-feeds/feeds/
-```
-
-### Usage Example
-
-```python
-from open_news import get_live_news
-
-# Fetches from feeds/country/india.json
-india_news = get_live_news(country="india", limit_per_feed=5)
-
-# Fetches from feeds/business.json
-business = get_live_news(category="business", limit_per_feed=3)
-
-# Fetches from feeds/news.json
-general = get_live_news(limit_per_feed=2)
-```
+6. **Categorize correctly:** Ensure the feed matches its file category
 
 ---
 
@@ -192,10 +172,10 @@ general = get_live_news(limit_per_feed=2)
 - `country/{country}.json` – Add more as needed
 
 ### News Categories
-- `news.json` – General news
-- `business.json` – Business & finance
+- `news.json` – General/Breaking news
+- `business.json` – Business, finance & economics
 - `politics.json` – Politics & government
-- `geopolitics.json` – International relations
+- `geopolitics.json` – International relations & geopolitical analysis
 
 ---
 
@@ -204,58 +184,49 @@ general = get_live_news(limit_per_feed=2)
 ### Regular Updates
 
 Feed maintenance is community-driven. Please:
-- Report broken feeds as [GitHub issues](https://github.com/alphap365/open-news/issues)
-- Remove feeds that haven't been updated in 3 months
-- Test feeds occasionally to ensure they're still active
-- Update feed URLs if sources change
+- **Report broken feeds** as [GitHub issues](https://github.com/alphap365/open-feeds/issues)
+- **Remove feeds** that haven't been updated in 3+ months
+- **Test feeds** occasionally to ensure they're still active
+- **Update feed URLs** if sources change their feed endpoints
 
 ### Broken Feed Protocol
 
 If a feed is broken:
 1. Open a GitHub issue with the feed name and URL
-2. Include error details (404, timeout, etc.)
-3. Maintainers will remove or update within a week
+2. Include error details (404, timeout, malformed XML, etc.)
+3. Maintainers will remove or update the feed within 1 week
 
 ---
 
 ## 🤝 Contributing
 
-We welcome contributions! To add feeds:
+We welcome contributions! To contribute feeds:
 
-1. **Read the guidelines** above
-2. **Test your feeds** thoroughly
-3. **Create a pull request** with clear descriptions
+1. **Read the [guidelines](#-feed-guidelines) above**
+2. **Test your feeds** thoroughly before submitting
+3. **Create a pull request** with a clear description
 4. **Be patient:** PRs are reviewed within 2-3 days
 
 ### PR Checklist
 - [ ] JSON is valid (`python3 -m json.tool` passes)
 - [ ] Feed URLs are tested and accessible
-- [ ] No duplicate feeds
-- [ ] Appropriate category/country folder
-- [ ] Descriptive commit message
-
----
-
-## ⚡ Caching
-
-The main package caches these feeds for **24 hours** to minimize network requests. Force refresh by clearing:
-
-```bash
-rm -rf ~/.open_news/feeds_cache/
-```
+- [ ] No duplicate feeds in the repository
+- [ ] Feed placed in appropriate category/country folder
+- [ ] Descriptive commit message and PR description
+- [ ] Feed follows the format specification above
 
 ---
 
 ## 📄 License
 
-Feed configurations are part of the **open-news** project, licensed under MIT. See [main LICENSE](https://github.com/alphap365/open-news/blob/main/LICENSE).
+Licensed under the MIT License. See [LICENSE](LICENSE) for details.
 
 ---
 
 <div align="center">
 
-**[← Back to Main Repository](https://github.com/alphap365/open-news)**
+**[GitHub](https://github.com/alphap365/open-feeds) • [Issues](https://github.com/alphap365/open-feeds/issues) • [Discussions](https://github.com/alphap365/open-feeds/discussions)**
 
-Made with ❤️ by the [open-news](https://github.com/alphap365/open-news) community
+Made with ❤️ by the community
 
 </div>
