@@ -1,0 +1,16 @@
+{
+  "version": 1,
+  "last_updated": "2026-06-17T12:00:00Z",
+  "feeds": [
+    {
+      "name": "Example News 1",
+      "url": "https://example.com/feed.xml",
+      "description": "Optional description of this feed"
+    },
+    {
+      "name": "Example News 2",
+      "url": "https://another.example.com/rss"
+    }
+  ],
+  "max_articles_per_feed": 8
+}
