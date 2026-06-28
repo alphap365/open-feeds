@@ -1,10 +1,13 @@
 {
-  "version": 1,
-  "last_updated": "2026-05-22T12:00:00Z",
+  "schema_version": 2,
+  "category": null,
+  "country": "china",
+  "last_updated": "2026-06-28T00:00:00Z",
+  "max_articles_per_feed": 8,
   "feeds": [
-    { "name": "China Daily", "url": "https://www.chinadaily.com.cn/rss/news_rss.xml" },
-    { "name": "Xinhua (English)", "url": "http://www.xinhuanet.com/english/rss.xml" },
-    { "name": "South China Morning Post", "url": "https://www.scmp.com/rss/2/feed" }
-  ],
-  "max_articles_per_feed": 8
+    { "id": "china-daily", "name": "China Daily", "url": "https://www.chinadaily.com.cn/rss/news_rss.xml", "type": "rss", "lang": "en", "country": "china", "tags": ["general", "state-media"], "active": true },
+    { "id": "xinhua-en", "name": "Xinhua (English)", "url": "http://www.xinhuanet.com/english/rss.xml", "type": "rss", "lang": "en", "country": "china", "tags": ["general", "state-media"], "active": true },
+    { "id": "scmp", "name": "South China Morning Post", "url": "https://www.scmp.com/rss/2/feed", "type": "rss", "lang": "en", "country": "china", "tags": ["general"], "active": true },
+    { "id": "gnews-top-cn", "name": "Google News - Top Stories (China)", "url": "https://news.google.com/rss?hl=en-US&gl=CN&ceid=CN:en", "type": "google_news_rss", "lang": "en", "country": "china", "tags": ["aggregator"], "active": true }
+  ]
 }

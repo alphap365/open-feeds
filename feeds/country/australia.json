@@ -1,10 +1,13 @@
 {
-  "version": 1,
-  "last_updated": "2026-05-22T12:00:00Z",
+  "schema_version": 2,
+  "category": null,
+  "country": "australia",
+  "last_updated": "2026-06-28T00:00:00Z",
+  "max_articles_per_feed": 8,
   "feeds": [
-    { "name": "ABC News (Australia)", "url": "https://www.abc.net.au/news/feed/51120/rss.xml" },
-    { "name": "The Sydney Morning Herald", "url": "https://www.smh.com.au/rss/feed.xml" },
-    { "name": "The Guardian Australia", "url": "https://www.theguardian.com/au/rss" }
-  ],
-  "max_articles_per_feed": 8
+    { "id": "abc-au", "name": "ABC News (Australia)", "url": "https://www.abc.net.au/news/feed/51120/rss.xml", "type": "rss", "lang": "en", "country": "australia", "tags": ["general"], "active": true },
+    { "id": "smh", "name": "The Sydney Morning Herald", "url": "https://www.smh.com.au/rss/feed.xml", "type": "rss", "lang": "en", "country": "australia", "tags": ["general"], "active": true },
+    { "id": "guardian-au", "name": "The Guardian Australia", "url": "https://www.theguardian.com/au/rss", "type": "rss", "lang": "en", "country": "australia", "tags": ["general"], "active": true },
+    { "id": "gnews-top-au", "name": "Google News - Top Stories (Australia)", "url": "https://news.google.com/rss?hl=en-AU&gl=AU&ceid=AU:en", "type": "google_news_rss", "lang": "en", "country": "australia", "tags": ["aggregator"], "active": true }
+  ]
 }

@@ -1,10 +1,13 @@
 {
-  "version": 1,
-  "last_updated": "2026-05-22T12:00:00Z",
+  "schema_version": 2,
+  "category": null,
+  "country": "germany",
+  "last_updated": "2026-06-28T00:00:00Z",
+  "max_articles_per_feed": 8,
   "feeds": [
-    { "name": "DW (English)", "url": "https://rss.dw.com/rdf/rss-en-all" },
-    { "name": "Der Spiegel (English)", "url": "https://www.spiegel.de/international/index.rss" },
-    { "name": "Deutsche Welle Top Stories", "url": "https://www.dw.com/en/top-stories/rss/en-1" }
-  ],
-  "max_articles_per_feed": 8
+    { "id": "dw-en", "name": "DW (English)", "url": "https://rss.dw.com/rdf/rss-en-all", "type": "rss", "lang": "en", "country": "germany", "tags": ["general"], "active": true },
+    { "id": "spiegel-international", "name": "Der Spiegel (English)", "url": "https://www.spiegel.de/international/index.rss", "type": "rss", "lang": "en", "country": "germany", "tags": ["general"], "active": true },
+    { "id": "dw-top-stories", "name": "Deutsche Welle Top Stories", "url": "https://www.dw.com/en/top-stories/rss/en-1", "type": "rss", "lang": "en", "country": "germany", "tags": ["general"], "active": true },
+    { "id": "gnews-top-de", "name": "Google News - Top Stories (Germany)", "url": "https://news.google.com/rss?hl=en-US&gl=DE&ceid=DE:en", "type": "google_news_rss", "lang": "en", "country": "germany", "tags": ["aggregator"], "active": true }
+  ]
 }

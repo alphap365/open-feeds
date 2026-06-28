@@ -1,10 +1,13 @@
 {
-  "version": 1,
-  "last_updated": "2026-05-22T12:00:00Z",
+  "schema_version": 2,
+  "category": null,
+  "country": "canada",
+  "last_updated": "2026-06-28T00:00:00Z",
+  "max_articles_per_feed": 8,
   "feeds": [
-    { "name": "CBC News", "url": "https://www.cbc.ca/cmlink/rss-canada" },
-    { "name": "The Globe and Mail", "url": "https://www.theglobeandmail.com/arc/outboundfeeds/rss/?outputType=xml" },
-    { "name": "National Post", "url": "https://nationalpost.com/feed" }
-  ],
-  "max_articles_per_feed": 8
+    { "id": "cbc", "name": "CBC News", "url": "https://www.cbc.ca/cmlink/rss-canada", "type": "rss", "lang": "en", "country": "canada", "tags": ["general"], "active": true },
+    { "id": "globe-and-mail", "name": "The Globe and Mail", "url": "https://www.theglobeandmail.com/arc/outboundfeeds/rss/?outputType=xml", "type": "rss", "lang": "en", "country": "canada", "tags": ["general"], "active": true },
+    { "id": "national-post", "name": "National Post", "url": "https://nationalpost.com/feed", "type": "rss", "lang": "en", "country": "canada", "tags": ["general"], "active": true },
+    { "id": "gnews-top-ca", "name": "Google News - Top Stories (Canada)", "url": "https://news.google.com/rss?hl=en-CA&gl=CA&ceid=CA:en", "type": "google_news_rss", "lang": "en", "country": "canada", "tags": ["aggregator"], "active": true }
+  ]
 }

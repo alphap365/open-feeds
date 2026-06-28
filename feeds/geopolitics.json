@@ -1,9 +1,12 @@
 {
-  "version": 1,
-  "last_updated": "2026-05-21T12:00:00Z",
+  "schema_version": 2,
+  "category": "geopolitics",
+  "country": null,
+  "last_updated": "2026-06-28T00:00:00Z",
+  "max_articles_per_feed": 8,
   "feeds": [
-    { "name": "Foreign Affairs", "url": "https://www.foreignaffairs.com/feed" },
-    { "name": "Stratfor", "url": "https://worldview.stratfor.com/rss.xml" }
-  ],
-  "max_articles_per_feed": 8
+    { "id": "foreign-affairs", "name": "Foreign Affairs", "url": "https://www.foreignaffairs.com/feed", "type": "rss", "lang": "en", "country": "usa", "tags": ["general"], "active": true },
+    { "id": "stratfor", "name": "Stratfor", "url": "https://worldview.stratfor.com/rss.xml", "type": "rss", "lang": "en", "country": "usa", "tags": ["general"], "active": true },
+    { "id": "gnews-world", "name": "Google News - World", "url": "https://news.google.com/rss/headlines/section/topic/WORLD?hl=en-US&gl=US&ceid=US:en", "type": "google_news_rss", "lang": "en", "country": null, "tags": ["aggregator"], "active": true }
+  ]
 }

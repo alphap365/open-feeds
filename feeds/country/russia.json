@@ -1,10 +1,13 @@
 {
-  "version": 1,
-  "last_updated": "2026-05-22T12:00:00Z",
+  "schema_version": 2,
+  "category": null,
+  "country": "russia",
+  "last_updated": "2026-06-28T00:00:00Z",
+  "max_articles_per_feed": 8,
   "feeds": [
-    { "name": "Russia Today (RT)", "url": "https://www.rt.com/rss/news/" },
-    { "name": "TASS (English)", "url": "https://tass.com/rss/v2.xml" },
-    { "name": "The Moscow Times", "url": "https://www.themoscowtimes.com/rss/news" }
-  ],
-  "max_articles_per_feed": 8
+    { "id": "rt", "name": "Russia Today (RT)", "url": "https://www.rt.com/rss/news/", "type": "rss", "lang": "en", "country": "russia", "tags": ["general", "state-media"], "active": true },
+    { "id": "tass-en", "name": "TASS (English)", "url": "https://tass.com/rss/v2.xml", "type": "rss", "lang": "en", "country": "russia", "tags": ["general", "state-media"], "active": true },
+    { "id": "moscow-times", "name": "The Moscow Times", "url": "https://www.themoscowtimes.com/rss/news", "type": "rss", "lang": "en", "country": "russia", "tags": ["general"], "active": true },
+    { "id": "gnews-top-ru", "name": "Google News - Top Stories (Russia)", "url": "https://news.google.com/rss?hl=en-US&gl=RU&ceid=RU:en", "type": "google_news_rss", "lang": "en", "country": "russia", "tags": ["aggregator"], "active": true }
+  ]
 }

@@ -1,10 +1,13 @@
 {
-  "version": 1,
-  "last_updated": "2026-05-21T12:00:00Z",
+  "schema_version": 2,
+  "category": null,
+  "country": "usa",
+  "last_updated": "2026-06-28T00:00:00Z",
+  "max_articles_per_feed": 8,
   "feeds": [
-    { "name": "CNN", "url": "http://rss.cnn.com/rss/edition.rss" },
-    { "name": "Fox News", "url": "https://moxie.foxnews.com/google-publisher/latest.xml" },
-    { "name": "NPR", "url": "https://feeds.npr.org/1001/rss.xml" }
-  ],
-  "max_articles_per_feed": 8
+    { "id": "cnn", "name": "CNN", "url": "http://rss.cnn.com/rss/edition.rss", "type": "rss", "lang": "en", "country": "usa", "tags": ["general"], "active": true },
+    { "id": "fox-news", "name": "Fox News", "url": "https://moxie.foxnews.com/google-publisher/latest.xml", "type": "rss", "lang": "en", "country": "usa", "tags": ["general"], "active": true },
+    { "id": "npr", "name": "NPR", "url": "https://feeds.npr.org/1001/rss.xml", "type": "rss", "lang": "en", "country": "usa", "tags": ["general"], "active": true },
+    { "id": "gnews-top-us", "name": "Google News - Top Stories (US)", "url": "https://news.google.com/rss?hl=en-US&gl=US&ceid=US:en", "type": "google_news_rss", "lang": "en", "country": "usa", "tags": ["aggregator"], "active": true }
+  ]
 }

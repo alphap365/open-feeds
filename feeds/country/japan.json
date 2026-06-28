@@ -1,10 +1,13 @@
 {
-  "version": 1,
-  "last_updated": "2026-05-22T12:00:00Z",
+  "schema_version": 2,
+  "category": null,
+  "country": "japan",
+  "last_updated": "2026-06-28T00:00:00Z",
+  "max_articles_per_feed": 8,
   "feeds": [
-    { "name": "NHK World (English)", "url": "https://www3.nhk.or.jp/nhkworld/en/news/rss.xml" },
-    { "name": "Japan Times", "url": "https://www.japantimes.co.jp/feed/" },
-    { "name": "Kyodo News (English)", "url": "https://english.kyodonews.net/rss/news_english.xml" }
-  ],
-  "max_articles_per_feed": 8
+    { "id": "nhk-world-en", "name": "NHK World (English)", "url": "https://www3.nhk.or.jp/nhkworld/en/news/rss.xml", "type": "rss", "lang": "en", "country": "japan", "tags": ["general"], "active": true },
+    { "id": "japan-times", "name": "Japan Times", "url": "https://www.japantimes.co.jp/feed/", "type": "rss", "lang": "en", "country": "japan", "tags": ["general"], "active": true },
+    { "id": "kyodo-en", "name": "Kyodo News (English)", "url": "https://english.kyodonews.net/rss/news_english.xml", "type": "rss", "lang": "en", "country": "japan", "tags": ["general"], "active": true },
+    { "id": "gnews-top-jp", "name": "Google News - Top Stories (Japan)", "url": "https://news.google.com/rss?hl=en-US&gl=JP&ceid=JP:en", "type": "google_news_rss", "lang": "en", "country": "japan", "tags": ["aggregator"], "active": true }
+  ]
 }

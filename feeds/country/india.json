@@ -1,11 +1,14 @@
 {
-  "version": 1,
-  "last_updated": "2026-05-21T12:00:00Z",
+  "schema_version": 2,
+  "category": null,
+  "country": "india",
+  "last_updated": "2026-06-28T00:00:00Z",
+  "max_articles_per_feed": 8,
   "feeds": [
-    { "name": "NDTV", "url": "https://feeds.feedburner.com/ndtvrss" },
-    { "name": "The Hindu", "url": "https://www.thehindu.com/news/feeder/default.rss" },
-    { "name": "Times of India", "url": "https://timesofindia.indiatimes.com/rssfeedstopstories.cms" },
-    { "name": "Indian Express", "url": "https://indianexpress.com/feed/" }
-  ],
-  "max_articles_per_feed": 8
+    { "id": "ndtv", "name": "NDTV", "url": "https://feeds.feedburner.com/ndtvrss", "type": "rss", "lang": "en", "country": "india", "tags": ["general"], "active": true },
+    { "id": "the-hindu", "name": "The Hindu", "url": "https://www.thehindu.com/news/feeder/default.rss", "type": "rss", "lang": "en", "country": "india", "tags": ["general"], "active": true },
+    { "id": "toi", "name": "Times of India", "url": "https://timesofindia.indiatimes.com/rssfeedstopstories.cms", "type": "rss", "lang": "en", "country": "india", "tags": ["general"], "active": true },
+    { "id": "indian-express", "name": "Indian Express", "url": "https://indianexpress.com/feed/", "type": "rss", "lang": "en", "country": "india", "tags": ["general"], "active": true },
+    { "id": "gnews-top-in", "name": "Google News - Top Stories (India)", "url": "https://news.google.com/rss?hl=en-IN&gl=IN&ceid=IN:en", "type": "google_news_rss", "lang": "en", "country": "india", "tags": ["aggregator"], "active": true }
+  ]
 }

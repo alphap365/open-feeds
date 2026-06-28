@@ -1,10 +1,13 @@
 {
-  "version": 1,
-  "last_updated": "2026-05-22T12:00:00Z",
+  "schema_version": 2,
+  "category": null,
+  "country": "brazil",
+  "last_updated": "2026-06-28T00:00:00Z",
+  "max_articles_per_feed": 8,
   "feeds": [
-    { "name": "Folha de S.Paulo (English)", "url": "https://www1.folha.uol.com.br/internacional/en/rss.xml" },
-    { "name": "The Brazilian Report", "url": "https://brazilian.report/feed/" },
-    { "name": "Rio Times", "url": "https://www.riotimesonline.com/feed/" }
-  ],
-  "max_articles_per_feed": 8
+    { "id": "folha-en", "name": "Folha de S.Paulo (English)", "url": "https://www1.folha.uol.com.br/internacional/en/rss.xml", "type": "rss", "lang": "en", "country": "brazil", "tags": ["general"], "active": true },
+    { "id": "brazilian-report", "name": "The Brazilian Report", "url": "https://brazilian.report/feed/", "type": "rss", "lang": "en", "country": "brazil", "tags": ["general"], "active": true },
+    { "id": "rio-times", "name": "Rio Times", "url": "https://www.riotimesonline.com/feed/", "type": "rss", "lang": "en", "country": "brazil", "tags": ["general"], "active": true },
+    { "id": "gnews-top-br", "name": "Google News - Top Stories (Brazil)", "url": "https://news.google.com/rss?hl=en-US&gl=BR&ceid=BR:en", "type": "google_news_rss", "lang": "en", "country": "brazil", "tags": ["aggregator"], "active": true }
+  ]
 }

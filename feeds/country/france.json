@@ -1,10 +1,13 @@
 {
-  "version": 1,
-  "last_updated": "2026-05-22T12:00:00Z",
+  "schema_version": 2,
+  "category": null,
+  "country": "france",
+  "last_updated": "2026-06-28T00:00:00Z",
+  "max_articles_per_feed": 8,
   "feeds": [
-    { "name": "France 24 (English)", "url": "https://www.france24.com/en/rss" },
-    { "name": "Le Monde (English)", "url": "https://www.lemonde.fr/en/rss/global.xml" },
-    { "name": "RFI (English)", "url": "https://www.rfi.fr/en/rss" }
-  ],
-  "max_articles_per_feed": 8
+    { "id": "france24-en", "name": "France 24 (English)", "url": "https://www.france24.com/en/rss", "type": "rss", "lang": "en", "country": "france", "tags": ["general"], "active": true },
+    { "id": "lemonde-en", "name": "Le Monde (English)", "url": "https://www.lemonde.fr/en/rss/global.xml", "type": "rss", "lang": "en", "country": "france", "tags": ["general"], "active": true },
+    { "id": "rfi-en", "name": "RFI (English)", "url": "https://www.rfi.fr/en/rss", "type": "rss", "lang": "en", "country": "france", "tags": ["general"], "active": true },
+    { "id": "gnews-top-fr", "name": "Google News - Top Stories (France)", "url": "https://news.google.com/rss?hl=en-US&gl=FR&ceid=FR:en", "type": "google_news_rss", "lang": "en", "country": "france", "tags": ["aggregator"], "active": true }
+  ]
 }

@@ -1,10 +1,13 @@
 {
-  "version": 1,
-  "last_updated": "2026-05-21T12:00:00Z",
+  "schema_version": 2,
+  "category": "business",
+  "country": null,
+  "last_updated": "2026-06-28T00:00:00Z",
+  "max_articles_per_feed": 8,
   "feeds": [
-    { "name": "Bloomberg", "url": "https://feeds.bloomberg.com/markets/news.rss" },
-    { "name": "Financial Times", "url": "https://www.ft.com/?format=rss" },
-    { "name": "Wall Street Journal", "url": "https://feeds.a.dj.com/rss/WSJcom.xml" }
-  ],
-  "max_articles_per_feed": 8
+    { "id": "bloomberg", "name": "Bloomberg", "url": "https://feeds.bloomberg.com/markets/news.rss", "type": "rss", "lang": "en", "country": "usa", "tags": ["general"], "active": true },
+    { "id": "ft", "name": "Financial Times", "url": "https://www.ft.com/?format=rss", "type": "rss", "lang": "en", "country": "uk", "tags": ["general"], "active": true },
+    { "id": "wsj", "name": "Wall Street Journal", "url": "https://feeds.a.dj.com/rss/WSJcom.xml", "type": "rss", "lang": "en", "country": "usa", "tags": ["general"], "active": true },
+    { "id": "gnews-business", "name": "Google News - Business", "url": "https://news.google.com/rss/headlines/section/topic/BUSINESS?hl=en-US&gl=US&ceid=US:en", "type": "google_news_rss", "lang": "en", "country": null, "tags": ["aggregator"], "active": true }
+  ]
 }

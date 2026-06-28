@@ -1,10 +1,13 @@
 {
-  "version": 1,
-  "last_updated": "2026-05-21T12:00:00Z",
+  "schema_version": 2,
+  "category": "news",
+  "country": null,
+  "last_updated": "2026-06-28T00:00:00Z",
+  "max_articles_per_feed": 8,
   "feeds": [
-    { "name": "BBC News", "url": "http://feeds.bbci.co.uk/news/rss.xml" },
-    { "name": "Reuters", "url": "https://www.reuters.com/news/archive/rss" },
-    { "name": "AP News", "url": "https://feeds.ap.org/feeds/news" }
-  ],
-  "max_articles_per_feed": 8
+    { "id": "bbc-news", "name": "BBC News", "url": "http://feeds.bbci.co.uk/news/rss.xml", "type": "rss", "lang": "en", "country": "uk", "tags": ["general"], "active": true },
+    { "id": "reuters", "name": "Reuters", "url": "https://www.reuters.com/news/archive/rss", "type": "rss", "lang": "en", "country": null, "tags": ["general"], "active": true },
+    { "id": "ap-news", "name": "AP News", "url": "https://feeds.ap.org/feeds/news", "type": "rss", "lang": "en", "country": "usa", "tags": ["general"], "active": true },
+    { "id": "gnews-top-global", "name": "Google News - Top Stories", "url": "https://news.google.com/rss?hl=en-US&gl=US&ceid=US:en", "type": "google_news_rss", "lang": "en", "country": null, "tags": ["aggregator"], "active": true }
+  ]
 }

@@ -1,10 +1,13 @@
 {
-  "version": 1,
-  "last_updated": "2026-05-21T12:00:00Z",
+  "schema_version": 2,
+  "category": null,
+  "country": "pakistan",
+  "last_updated": "2026-06-28T00:00:00Z",
+  "max_articles_per_feed": 8,
   "feeds": [
-    { "name": "Dawn", "url": "https://www.dawn.com/feeds/home" },
-    { "name": "Geo News", "url": "https://www.geo.tv/feeds/latest" },
-    { "name": "The Express Tribune", "url": "https://tribune.com.pk/feed/" }
-  ],
-  "max_articles_per_feed": 8
+    { "id": "dawn", "name": "Dawn", "url": "https://www.dawn.com/feeds/home", "type": "rss", "lang": "en", "country": "pakistan", "tags": ["general"], "active": true },
+    { "id": "geo-news", "name": "Geo News", "url": "https://www.geo.tv/feeds/latest", "type": "rss", "lang": "en", "country": "pakistan", "tags": ["general"], "active": true },
+    { "id": "express-tribune", "name": "The Express Tribune", "url": "https://tribune.com.pk/feed/", "type": "rss", "lang": "en", "country": "pakistan", "tags": ["general"], "active": true },
+    { "id": "gnews-top-pk", "name": "Google News - Top Stories (Pakistan)", "url": "https://news.google.com/rss?hl=en-PK&gl=PK&ceid=PK:en", "type": "google_news_rss", "lang": "en", "country": "pakistan", "tags": ["aggregator"], "active": true }
+  ]
 }

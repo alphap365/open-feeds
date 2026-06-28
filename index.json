@@ -1,0 +1,23 @@
+{
+  "schema_version": 2,
+  "generated_at": "2026-06-28T00:00:00Z",
+  "registry": [
+    { "key": "news", "kind": "category", "path": "feeds/news.json" },
+    { "key": "business", "kind": "category", "path": "feeds/business.json" },
+    { "key": "politics", "kind": "category", "path": "feeds/politics.json" },
+    { "key": "geopolitics", "kind": "category", "path": "feeds/geopolitics.json" },
+    { "key": "usa", "kind": "country", "path": "feeds/country/usa.json" },
+    { "key": "india", "kind": "country", "path": "feeds/country/india.json" },
+    { "key": "china", "kind": "country", "path": "feeds/country/china.json" },
+    { "key": "russia", "kind": "country", "path": "feeds/country/russia.json" },
+    { "key": "uk", "kind": "country", "path": "feeds/country/uk.json" },
+    { "key": "australia", "kind": "country", "path": "feeds/country/australia.json" },
+    { "key": "canada", "kind": "country", "path": "feeds/country/canada.json" },
+    { "key": "france", "kind": "country", "path": "feeds/country/france.json" },
+    { "key": "germany", "kind": "country", "path": "feeds/country/germany.json" },
+    { "key": "japan", "kind": "country", "path": "feeds/country/japan.json" },
+    { "key": "pakistan", "kind": "country", "path": "feeds/country/pakistan.json" },
+    { "key": "southafrica", "kind": "country", "path": "feeds/country/southafrica.json" },
+    { "key": "brazil", "kind": "country", "path": "feeds/country/brazil.json" }
+  ]
+}
