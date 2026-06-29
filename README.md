@@ -1,3 +1,4 @@
+
 <div align="center">
 
 # 📡 Open Feeds
@@ -12,221 +13,253 @@
 
 ## 📋 Overview
 
-**Open Feeds** is a community-maintained repository of curated RSS feed definitions. These feeds are designed to be used by news aggregation tools, scrapers, and Python packages like `open-news`.
+**Open Feeds** is a community-maintained repository of curated RSS feed definitions. These feeds are designed to be used by news aggregation tools, scrapers, and Python packages like [open-news-api](https://pypi.org/project/open-news-api).
 
 This repository maintains:
-- ✅ 50+ country-specific feeds
-- ✅ Category-based news feeds (business, politics, geopolitics)
-- ✅ Version controlled for full transparency
-- ✅ Easy community contributions
-- ✅ Regularly maintained and validated feeds
+* ✅ 50+ country-specific feeds
+* ✅ Category-based news feeds (business, politics, geopolitics, general news)
+* ✅ Version controlled for full transparency
+* ✅ Easy community contributions
+* ✅ Regularly maintained and validated feeds
 
 ---
 
 ## 🗂️ Feed Structure
 
-```
+```text
 feeds/
-├── news.json              # General news feeds
-├── business.json          # Business & finance news
-├── politics.json          # Political news
-├── geopolitics.json       # Geopolitical analysis
+├── news.json             # General news feeds
+├── business.json         # Business & finance news
+├── politics.json         # Political news
+├── geopolitics.json     # Geopolitical analysis
 └── country/
-    ├── india.json         # India-specific feeds
-    ├── usa.json           # United States feeds
-    ├── uk.json            # United Kingdom feeds
-    ├── pakistan.json      # Pakistan-specific feeds
-    └── ...                # Other countries
+    ├── usa.json          # United States
+    ├── india.json        # India
+    ├── uk.json           # United Kingdom
+    ├── pakistan.json     # Pakistan
+    └── ...               # Other countries
+
+templates/template.json   # Template for new feed files
+
 ```
+
+The root `index.json` serves as a registry that lists all available feed files, their type (category or country), and their path.
 
 ---
 
 ## 📝 Feed Format
 
-Each JSON file follows this structure:
+Each JSON file follows this **versioned schema**:
 
 ```json
 {
+  "schema_version": 2,
+  "category": null,                 // or "news", "business", "politics", "geopolitics"
+  "country": null,                  // or "usa", "india", "uk", etc.
+  "last_updated": "2026-06-28T00:00:00Z",
+  "max_articles_per_feed": 8,       // maximum articles to fetch from each feed
   "feeds": [
     {
-      "name": "BBC News",
-      "url": "https://feeds.bbc.co.uk/news/rss.xml",
-      "description": "BBC News RSS Feed"
-    },
-    {
-      "name": "Reuters",
-      "url": "https://www.reuters.com/rssFeed/worldNews",
-      "description": "Reuters World News"
+      "id": "bbc-news",             // unique identifier for the feed
+      "name": "BBC News",           // display name
+      "url": "[https://feeds.bbci.co.uk/news/rss.xml](https://feeds.bbci.co.uk/news/rss.xml)",
+      "type": "rss",                // "rss" or "google_news_rss" (or others)
+      "lang": "en",                 // language code
+      "country": "uk",              // primary country (may be null for global feeds)
+      "tags": ["general"],          // array of tags (e.g., "general", "state-media", "aggregator")
+      "active": true                // whether the feed is currently live
     }
   ]
 }
+
 ```
 
 ### Field Descriptions
 
 | Field | Type | Required | Description |
-|-------|------|----------|-------------|
-| `name` | string | ✅ Yes | Feed source name (e.g., "BBC News") |
-| `url` | string | ✅ Yes | RSS feed URL (must be valid and accessible) |
-| `description` | string | ❌ Optional | Human-readable description of the feed |
+| --- | --- | --- | --- |
+| `schema_version` | integer | ✅ Yes | Version of the schema (currently 2) |
+| `category` | string or null | ❌ No | If the file is a category file (e.g., "news", "business") |
+| `country` | string or null | ❌ No | If the file is a country file (e.g., "usa", "india") |
+| `last_updated` | string (ISO 8601) | ✅ Yes | Date when the file was last modified |
+| `max_articles_per_feed` | integer | ✅ Yes | Number of latest articles to fetch per feed (default usually 8) |
+| `feeds` | array | ✅ Yes | List of feed objects |
+| `feeds[].id` | string | ✅ Yes | Unique identifier for this feed (within the repository) |
+| `feeds[].name` | string | ✅ Yes | Human‑readable name of the source |
+| `feeds[].url` | string | ✅ Yes | RSS/Atom feed URL (must be valid and accessible) |
+| `feeds[].type` | string | ✅ Yes | Feed format (currently "rss" or "google_news_rss") |
+| `feeds[].lang` | string | ✅ Yes | Language code (e.g., "en", "fr") |
+| `feeds[].country` | string or null | ❌ No | Primary country of the feed (if applicable) |
+| `feeds[].tags` | array of strings | ✅ Yes | Descriptive tags (e.g., `["general"]`, `["state-media"]`) |
+| `feeds[].active` | boolean | ✅ Yes | `true` if the feed is active and should be used |
 
 ---
 
 ## ➕ Adding Feeds
 
-### Step 1: Fork & Clone
+### 1. Fork & Clone the Repository
+
 ```bash
-git clone https://github.com/alphap365/open-feeds.git
+git clone [https://github.com/alphap365/open-feeds.git](https://github.com/alphap365/open-feeds.git)
 cd open-feeds
+
 ```
 
-### Step 2: Create a Feature Branch
-```bash
-git checkout -b add-feeds/<feed-category>
-# Example: git checkout -b add-feeds/india-news
-```
+### 2. Choose the Appropriate File
 
-### Step 3: Edit the Appropriate JSON File
+* **Country feeds** → edit `feeds/country/<country>.json`
+* **Category feeds** → edit `feeds/<category>.json` (e.g., `news.json`)
+* **New country** → copy `templates/template.json` to `feeds/country/<country>.json` and fill in the details.
 
-For example, to add a feed to India news:
+### 3. Add Your Feed Entry
 
-```bash
-# Open feeds/country/india.json
-# Add your feed to the "feeds" array:
+Inside the `feeds` array, add a new object with all required fields. For example, to add a new Indian news source:
+
+```json
 {
+  "id": "the-hindu",
   "name": "The Hindu",
-  "url": "https://feeds.thehindu.com/news/national/?format=feed&type=rss",
-  "description": "The Hindu - National News"
+  "url": "[https://www.thehindu.com/news/feeder/default.rss](https://www.thehindu.com/news/feeder/default.rss)",
+  "type": "rss",
+  "lang": "en",
+  "country": "india",
+  "tags": ["general"],
+  "active": true
 }
+
 ```
 
-### Step 4: Validate JSON
+### 4. Validate the JSON
 
-Ensure the JSON is valid:
+Make sure the file is valid JSON:
+
 ```bash
 python3 -m json.tool feeds/country/india.json
+
 ```
 
-### Step 5: Test the Feed
+### 5. Test the Feed
 
-Verify the RSS feed is accessible and returns data:
+Verify the feed URL works:
+
 ```bash
-curl -s "https://feeds.thehindu.com/news/national/?format=feed&type=rss" | head -20
+curl -s "[https://www.thehindu.com/news/feeder/default.rss](https://www.thehindu.com/news/feeder/default.rss)" | head -20
+
 ```
 
-### Step 6: Commit & Push
+### 6. Update `index.json` (if adding a new file)
+
+If you create a new country or category file, add an entry in `index.json` under the registry array.
+
+For a new country file:
+
+```json
+{
+  "key": "mynewcountry",
+  "kind": "country",
+  "path": "feeds/country/mynewcountry.json"
+}
+
+```
+
+For a new category file:
+
+```json
+{
+  "key": "technology",
+  "kind": "category",
+  "path": "feeds/technology.json"
+}
+
+```
+
+### 7. Commit & Push
 
 ```bash
 git add feeds/country/india.json
+git add index.json   # if changed
 git commit -m "Add The Hindu news feed to India feeds"
 git push origin add-feeds/india-news
+
 ```
 
-### Step 7: Create a Pull Request
+### 8. Create a Pull Request
 
 Submit your PR with:
-- Clear title: `Add [Feed Name] to [Category/Country]`
-- Description of feeds added
-- Rationale: Why this feed is relevant
-- Verification: Confirmation that feeds are working
+
+* **A clear title:** `Add [Feed Name] to [Category/Country]`
+* Description of the added feeds
+* Rationale for inclusion
+* Verification that feeds are working
 
 ---
 
 ## 🔍 Feed Guidelines
 
-### What Makes a Good Feed?
+### ✅ Good Feeds
 
-✅ **Good Feeds:**
-- Regularly updated (daily or more frequent)
-- Returns complete article titles and links
-- Provides publication dates
-- Maintains stable feed URL for 6+ months
-- Accessible without authentication or paywall
-- Valid and well-formed RSS/Atom format
+* Regularly updated (daily or more)
+* Complete article titles and links
+* Publication dates included
+* Stable feed URL for 6+ months
+* Accessible without authentication
+* Valid RSS/Atom format
 
-❌ **Avoid:**
-- Paywalled or limited access feeds
-- Feeds with truncated content or summaries only
-- Dead or inactive feeds (no updates in 3+ months)
-- Feeds requiring API keys or authentication
-- Feeds with excessive redirects or errors
+### ❌ Avoid
 
-### Best Practices
+* Paywalled or limited‑access feeds
+* Truncated content or summaries only
+* Dead or inactive feeds (no updates in 3+ months)
+* Feeds requiring API keys or authentication
+* Feeds with excessive redirects or errors
 
-1. **Test before submitting:** Always verify the feed URL works and returns articles
-2. **No duplicates:** Search existing JSON files to avoid adding the same source twice
-3. **Country-specific feeds:** Place country feeds in `feeds/country/{country}.json`
-4. **Category feeds:** Use the main category files (`news.json`, `business.json`, etc.)
-5. **Descriptive names:** Use official source names (e.g., "BBC News" not "BBC")
-6. **Categorize correctly:** Ensure the feed matches its file category
+### 💡 Best Practices
+
+* **Test before submitting** – always verify the URL works.
+* **No duplicates** – search existing files to avoid adding the same source twice.
+* **Use official names** – e.g., "BBC News" instead of "BBC".
+* **Choose correct tags** – use `["general"]`, `["state-media"]`, `["aggregator"]`, or custom tags as needed.
+* **Set active status** – set `"active": true` only if the feed is currently live; set to `false` if it’s temporarily broken.
 
 ---
 
 ## 📊 Feed Categories
 
-### Countries
-- `country/india.json` – India
-- `country/usa.json` – United States
-- `country/uk.json` – United Kingdom
-- `country/pakistan.json` – Pakistan
-- `country/{country}.json` – Add more as needed
-
-### News Categories
-- `news.json` – General/Breaking news
-- `business.json` – Business, finance & economics
-- `politics.json` – Politics & government
-- `geopolitics.json` – International relations & geopolitical analysis
+| File | Type | Description |
+| --- | --- | --- |
+| `news.json` | Category | General / breaking news |
+| `business.json` | Category | Business, finance, economics |
+| `politics.json` | Category | Politics & government |
+| `geopolitics.json` | Category | International relations, geopolitical analysis |
+| `country/*.json` | Country | Feeds specific to a country (e.g., `india.json`) |
 
 ---
 
 ## 🔄 Maintenance
 
-### Regular Updates
-
-Feed maintenance is community-driven. Please:
-- **Report broken feeds** as [GitHub issues](https://github.com/alphap365/open-feeds/issues)
-- **Remove feeds** that haven't been updated in 3+ months
-- **Test feeds** occasionally to ensure they're still active
-- **Update feed URLs** if sources change their feed endpoints
-
-### Broken Feed Protocol
-
-If a feed is broken:
-1. Open a GitHub issue with the feed name and URL
-2. Include error details (404, timeout, malformed XML, etc.)
-3. Maintainers will remove or update the feed within 1 week
+* Report broken feeds via GitHub Issues.
+* Remove feeds that haven’t been updated in 3+ months.
+* Update feed URLs if sources change their feed endpoints.
+* Set `"active": false` for temporarily unavailable feeds.
 
 ---
 
 ## 🤝 Contributing
 
-We welcome contributions! To contribute feeds:
-
-1. **Read the [guidelines](#-feed-guidelines) above**
-2. **Test your feeds** thoroughly before submitting
-3. **Create a pull request** with a clear description
-4. **Be patient:** PRs are reviewed within 2-3 days
+We welcome contributions! Please follow the steps above and check the PR checklist:
 
 ### PR Checklist
-- [ ] JSON is valid (`python3 -m json.tool` passes)
-- [ ] Feed URLs are tested and accessible
-- [ ] No duplicate feeds in the repository
-- [ ] Feed placed in appropriate category/country folder
-- [ ] Descriptive commit message and PR description
-- [ ] Feed follows the format specification above
+
+* [ ] JSON is valid (`python3 -m json.tool` passes)
+* [ ] Feed URLs are tested and accessible
+* [ ] No duplicate feeds in the repository
+* [ ] Feed placed in appropriate category/country file
+* [ ] `index.json` updated if a new file is added
+* [ ] Descriptive commit message and PR description
+* [ ] Feed follows the format specification
 
 ---
 
-## 📄 License
-
-Licensed under the MIT License. See [LICENSE](LICENSE) for details.
-
----
-
-<div align="center">
-
-**[GitHub](https://github.com/alphap365/open-feeds) • [Issues](https://github.com/alphap365/open-feeds/issues) • [Discussions](https://github.com/alphap365/open-feeds/discussions)**
+GitHub • Issues • Discussions
 
 Made with ❤️ by the community
-
-</div>

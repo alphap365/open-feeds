@@ -1,0 +1,20 @@
+{
+  "schema_version": 2,
+  "category": null,                // set to "news", "business", "politics", "geopolitics" or leave null for country files
+  "country": null,                 // set to "usa", "india", "uk", etc. for country files
+  "last_updated": "2026-06-28T00:00:00Z",
+  "max_articles_per_feed": 8,
+  "feeds": [
+    {
+      "id": "source-id",           // unique, lower-case, dash-separated
+      "name": "Source Name",
+      "url": "https://example.com/feed.rss",
+      "type": "rss",               // or "google_news_rss"
+      "lang": "en",
+      "country": null,             // or "us", "in", "gb", etc.
+      "tags": ["general"],         // add more tags as needed (e.g., "state-media", "aggregator")
+      "active": true
+    }
+    // add more feed objects here
+  ]
+}
